@@ -5,32 +5,12 @@ import re
 import signal
 import time
 import pytest
-
-# TO-DOS:
-#   configure exit signal properly
-#   on creating file, write the boilerplate
-#   create folders if not exists
-#   accept entire folder for monitoring
-#   lint-it
-#   make-it-a-pip-package
-
-# DREAMS:
-#   entire monitoring cli/gui framework
-#       1. provide root dir
-#       2. scan for supported libs or
-#           ask for lib of preference
-#
-#       3. scan for source codes or
-#           ask for route dir of source codes to be tested
-#
-#       4. run available tests
-#       5. start monitoring changes on tests files or source code files
-#       6. run relevant tests if changes are noticed
+import optparse
 
 
 EXIT_EVENT = threading.Event()
 ARGS_ERROR = IndexError(
-    "Invalid arguments!\nUsage:\npython3 test_fizz_buzz.py /path/to/tested/file.py"
+    "Invalid arguments!\nUsage:\npython3 tdd-monitor.py /path/to/tested/file.py  /path/to/test/file"
 )
 
 
@@ -55,16 +35,27 @@ def create_file(file_path: str):
 
 
 def treat_arguments(arguments: list[str]):
-    if len(arguments) != 2:
+    if len(arguments) == 2:
+        file_name = get_file_name(arguments[1])
+
+        if not os.path.isfile(arguments[1]):
+            create_file(arguments[1])
+
+        if not os.path.isfile(f"tests/tests_{file_name}"):
+            create_file(f"tests/tests_{file_name}")
+
+    elif len(arguments) == 3:
+        sc_file_path = arguments[1]
+        test_file_path = arguments[2]
+
+        if not os.path.isfile(sc_file_path):
+            create_file(sc_file_path)
+
+        if not os.path.isfile(test_file_path):
+            create_file(test_file_path)
+
+    else:
         raise ARGS_ERROR
-
-    file_name = get_file_name(arguments[1])
-
-    if not os.path.isfile(arguments[1]):
-        create_file(arguments[1])
-
-    if not os.path.isfile(f"tests/tests_{file_name}"):
-        create_file(f"tests/tests_{file_name}")
 
 
 def have_file_changed(base_file: str, file_path: str) -> bool | str:
@@ -100,7 +91,11 @@ def main(base_file: str, file_path: str, file_type):
         base_file = check
         do_the_test(file_path, file_type)
 
-    recursively_call = threading.Timer(2, main, [base_file, file_path, file_type])
+    recursively_call = threading.Timer(
+        2,
+        main,
+        [base_file, file_path, file_type]
+    )
     recursively_call.start()
 
 
@@ -130,7 +125,8 @@ if __name__ == "__main__":
 
         # MAKE A FIRST READING OF THE FILES
         file_path = arguments[1]
-        test_path = f"tests/tests_{get_file_name(file_path)}"
+        test_path = f"tests/tests_{get_file_name(file_path)}" if len(arguments) == 2 else arguments[2]
+        print(test_path)
         first_sc_read: str = ""
         first_tsc_read: str = ""
         with open(file_path, mode="r") as source_code:
