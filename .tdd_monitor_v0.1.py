@@ -89,7 +89,7 @@ def parse_arguments(arguments: list[str]):
         if tf_ending == ".py":
             if not os.path.isfile(test_file_path):
                 create_file(test_file_path)
-            return file_name, "tests", get_file_name(test_file_path)
+            return file_name, '/'.join(test_file_path.split('/')[:-1]), get_file_name(test_file_path)
         else:
             return file_name, arguments[2], False
 
