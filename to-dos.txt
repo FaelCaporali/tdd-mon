@@ -1,15 +1,11 @@
 TO-DOS:
-  properly handle test_path if provided
   refactor to use optparse
-  evaluate OOP implementation
-  configure exit signal properly
+  configure signal's properly
   on creating file, write the boilerplate
-  create folders if not exists
-  accept entire folder for monitoring
   lint-it
   make-it-a-pip-package
 
-DREAMS:
+DREAM:
   entire monitoring cli/gui framework
       1. provide root dir
       2. scan for supported libs or
@@ -19,3 +15,6 @@ DREAMS:
       4. run available tests
       5. start monitoring changes on tests files or source code files
       6. run relevant tests if changes are noticed
+
+      A. provide status of coverage
+      B. provide simple "gui" runner
