@@ -1,3 +1,0 @@
------
-Initializing TDD monitor
------
