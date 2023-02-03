@@ -1,4 +1,7 @@
-from src.tdd_mon import EXIT_EVENT
+import threading
+
+
+EXIT_EVENT = threading.Event()
 
 
 def exit_handler(signal_number, frame):
