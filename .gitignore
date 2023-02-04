@@ -7,3 +7,7 @@ __init__.py
 __pycache__
 */__pycache__
 **/__pycache__
+
+build/
+
+tdd_pytest_monitor.egg-info
