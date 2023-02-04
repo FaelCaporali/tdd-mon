@@ -1,11 +1,11 @@
 import sys
 from signal import SIGINT, signal
-from chore.signal_handler import exit_handler
-from chore.args_parse import parser
-from file_handling.collect_test_files import collect_test_files
-from chore.monitor import monitor
-from chore.trigger_test import trigger_test
-from file_handling.read_doc import read_doc
+from src.chore.signal_handler import exit_handler
+from src.chore.args_parse import parser
+from src.file_handling.collect_test_files import collect_test_files
+from src.chore.monitor import monitor
+from src.chore.trigger_test import trigger_test
+from src.file_handling.read_doc import read_doc
 
 
 def main():

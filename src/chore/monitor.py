@@ -1,7 +1,7 @@
 import threading
-from chore.trigger_test import trigger_test
-from file_handling.compare_files import compare_files
-from chore.signal_handler import EXIT_EVENT
+from src.chore.trigger_test import trigger_test
+from src.file_handling.compare_files import compare_files
+from src.chore.signal_handler import EXIT_EVENT
 
 
 def monitor(

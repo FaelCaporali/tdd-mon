@@ -1,4 +1,4 @@
-import main
+import src.main
 import pytest
 import sys
 import os
@@ -16,7 +16,7 @@ def test_lack_of_args():
         "python3 tdd-monitor.py /path/to/tested/file.py  /path/to/test/file",
     ):
         sys.argv = ["tdd-mon"]
-        main.main()
+        src.main.main()
 
     """Calling without file ending
     """
@@ -27,7 +27,7 @@ def test_lack_of_args():
         "python3 tdd-monitor.py /path/to/tested/file.py  /path/to/test/file",
     ):
         sys.argv = ["tdd-mon", "src/main"]
-        main.main()
+        src.main.main()
 
 
 @pytest.fixture
@@ -46,7 +46,7 @@ def tests_empty_tests_dir(create_empty_folder_and_remove_it):
         "crie ao menos um arquivo de teste no diretório .empty_dir",
     ):
         sys.argv = ["tdd-mon", "src/main.py", ".empty_dir"]
-        main.main()
+        src.main.main()
 
 
 def tests_dir_not_found():
@@ -59,4 +59,4 @@ def tests_dir_not_found():
         "Tem certeza que os diretórios existem nos locais especificados?",
     ):
         sys.argv = ["tdd-mon", "src/main.py", "non-existing-path"]
-        main.main()
+        src.main.main()
