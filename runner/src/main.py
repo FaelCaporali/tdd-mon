@@ -31,8 +31,8 @@ def main():
 
     except FileNotFoundError:
         raise FileNotFoundError(
-            "Não foi encontrado o caminho."
-            "tdd-u.monitor somente cria arquivos"
+            "Não foi encontrado o caminho.\n"
+            "tdd-monitor somente cria arquivos.\n"
             "Tem certeza que os diretórios existem nos locais especificados?"
         )
     except ImportError:
