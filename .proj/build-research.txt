@@ -1,0 +1,67 @@
+https://www.youtube.com/watch?v=GIF3LaRqgXo&ab_channel=CodingTech
+
+
+1-setup.py -> for setuptools -> tells python env properties
+    py_modules=["module"] -> what people can import
+    install_requires= production
+    extras_require = {
+        "dev": [
+            "pytest>=3.7",
+        ],
+    }
+
+2-create a wheel file
+    python setup.py bdist_wheel
+
+    build
+        bdist
+        lib
+            name.py
+    dist
+        wheel-file
+    src
+        egg-info
+            loads of files
+
+3 - pip install -e .
+    -e -> create a link to lib & code
+
+4 - perfect it
+    a. gitignore
+    b. license
+    c. classifiers -> find it in pip
+    d. docs:
+        d1. readme -> context, requires, use cases, instructions, etc 
+        d2. version
+    e - test it
+5 - python setup.py sdist
+    creates a source distribution
+
+6 - manifest
+    pip install check-manifest
+    check-manifest --create
+    git add MANIFEST.in
+
+DISTRIBUTE IT
+
+7 - python setup.py bdist_wheel sdist
+
+pip install twine
+
+twine upload dist/*
+
+tox - test different os distributions
+travis : ?
+code coverage
+quality metrics
+contribute section
+
+
+DONT DO:
+    paste & copy
+
+meta to setup.cfg
+project.toml
+    poetry -> cookiecutter, virtualenv, setup.py
+    flit -> setup.py
+    hatch cookiecutter & virtualenv & twine 
