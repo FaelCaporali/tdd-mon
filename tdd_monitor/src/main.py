@@ -45,5 +45,5 @@ def main():
 
 
 if __name__ == "__main__":
-    print(read_doc("src/templates/welcome.txt"), file=sys.stdout)
+    print(read_doc("runner/src/templates/welcome.txt"), file=sys.stdout)
     main()

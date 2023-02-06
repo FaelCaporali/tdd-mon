@@ -1,4 +1,4 @@
-from src.main import main
+from tdd_monitor.src.main import main
 import pytest
 import sys
 import os
