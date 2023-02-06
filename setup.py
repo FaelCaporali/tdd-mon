@@ -20,15 +20,14 @@ setup(
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries',
     ],
-    package_dir={'': 'runner'},
-    packages=find_packages(where="runner/src", exclude="tests"),
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         'pytest',
         'pytest-xdist'
     ],
-    include_package_data=True,
     entry_points={
         'console_scripts': [
-            'tdd-mon=src.main:main'],
+            'tdd-mon=tdd_monitor.src.main:main'],
     },
 )
