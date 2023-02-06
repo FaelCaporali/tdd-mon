@@ -1,7 +1,7 @@
 import os
-from errors.args_error import ARGS_ERROR
-from file_handling.create_file import create_file
-from file_handling.get_file_name import get_file_name
+from tdd_monitor.src.errors.args_error import ARGS_ERROR
+from tdd_monitor.src.file_handling.create_file import create_file
+from tdd_monitor.src.file_handling.get_file_name import get_file_name
 
 
 def parser(arguments: list[str]):

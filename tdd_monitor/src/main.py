@@ -1,11 +1,11 @@
 import sys
 from signal import SIGINT, signal
-from chore.signal_handler import exit_handler
-from chore.args_parse import parser
-from file_handling.collect_test_files import collect_test_files
-from chore.monitor import monitor
-from chore.trigger_test import trigger_test
-from file_handling.read_doc import read_doc
+from tdd_monitor.src.chore.signal_handler import exit_handler
+from tdd_monitor.src.chore.args_parse import parser
+from tdd_monitor.src.file_handling.collect_test_files import collect_test_files
+from tdd_monitor.src.chore.monitor import monitor
+from tdd_monitor.src.chore.trigger_test import trigger_test
+from tdd_monitor.src.file_handling.read_doc import read_doc
 
 
 def main():
@@ -31,8 +31,8 @@ def main():
 
     except FileNotFoundError:
         raise FileNotFoundError(
-            "Não foi encontrado o caminho."
-            "tdd-u.monitor somente cria arquivos"
+            "Não foi encontrado o caminho.\n"
+            "tdd-monitor somente cria arquivos.\n"
             "Tem certeza que os diretórios existem nos locais especificados?"
         )
     except ImportError:
@@ -45,5 +45,5 @@ def main():
 
 
 if __name__ == "__main__":
-    print(read_doc("src/templates/welcome.txt"), file=sys.stdout)
+    print(read_doc("runner/src/templates/welcome.txt"), file=sys.stdout)
     main()

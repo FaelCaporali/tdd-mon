@@ -1,4 +1,4 @@
-from templates.init_test import init_log
+from tdd_monitor.src.templates.init_test import init_log
 import pytest
 
 
