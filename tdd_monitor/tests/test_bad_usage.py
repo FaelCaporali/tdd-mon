@@ -26,7 +26,7 @@ def test_lack_of_args():
         "Usage:\n"
         "python3 tdd-monitor.py /path/to/tested/file.py  /path/to/test/file",
     ):
-        sys.argv = ["tdd-mon", "runner/src/main"]
+        sys.argv = ["tdd-mon", "tdd_monitor/src/main"]
         main()
 
 
@@ -45,18 +45,17 @@ def tests_empty_tests_dir(create_empty_folder_and_remove_it):
         match="Nenhum arquivo de teste neste diretório\n"
         "crie ao menos um arquivo de teste no diretório .empty_dir",
     ):
-        sys.argv = ["tdd-mon", "runner/src/main.py", ".empty_dir"]
+        sys.argv = ["tdd-mon", "tdd_monitor/src/main.py", ".empty_dir"]
         main()
 
 
 def tests_dir_not_found():
     """Raise FileNotFoundError for non existing tests path"""
-    sys.argv = ["tdd-mon", "src/main.py", "none_dir"]
     with pytest.raises(
         FileNotFoundError,
         match="Não foi encontrado o caminho.\n"
         "tdd-monitor somente cria arquivos.\n"
         "Tem certeza que os diretórios existem nos locais especificados?",
     ):
-        sys.argv = ["tdd-mon", "runner/src/main.py", "non-existing-path"]
+        sys.argv = ["tdd-mon", "tdd_monitor/src/main.py", "non-existing-path"]
         main()

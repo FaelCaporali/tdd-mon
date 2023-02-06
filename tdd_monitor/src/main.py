@@ -1,11 +1,11 @@
 import sys
 from signal import SIGINT, signal
-from src.chore.signal_handler import exit_handler
-from src.chore.args_parse import parser
-from src.file_handling.collect_test_files import collect_test_files
-from src.chore.monitor import monitor
-from src.chore.trigger_test import trigger_test
-from src.file_handling.read_doc import read_doc
+from tdd_monitor.src.chore.signal_handler import exit_handler
+from tdd_monitor.src.chore.args_parse import parser
+from tdd_monitor.src.file_handling.collect_test_files import collect_test_files
+from tdd_monitor.src.chore.monitor import monitor
+from tdd_monitor.src.chore.trigger_test import trigger_test
+from tdd_monitor.src.file_handling.read_doc import read_doc
 
 
 def main():

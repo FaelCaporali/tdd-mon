@@ -1,4 +1,5 @@
+include *.in
 include *.txt
 include VERSION
-recursive-include runner *.py
-recursive-include runner *.txt
+recursive-include tdd_monitor *.py
+recursive-include tdd_monitor *.txt
